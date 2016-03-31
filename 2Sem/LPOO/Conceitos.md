@@ -20,9 +20,9 @@ public class User
 ###<b> 1.1.2 Propriedade </b>
 <p>Uma propriedade é uma característica da classe. Uma propriedade é muitas vezes confundida com uma variável, porém a principal diferença entre elas está no nível que são declaradas. Uma variável é um espaço na memória que é utilizado apenas no método na qual foi declarada. Já uma propriedade de uma classe está presente em toda instanciação que foi feita, sendo visível de um escopo muito maior.</p>
 ```java
-public    String  username;
-protected String  fullName;
-private   boolean valid;
+public    String  username = "renanliberato";
+protected String  fullName = "Renan Liberato Sant'Ana";
+private   boolean valid = true;
 ```
 A declaração de uma propriedade segue quase a mesma linha da declaração de uma variável, com exceção do primeiro item.
 O primeiro item da declaração é o nível de visibilidade do objeto, ele pode ser public, protected e private (este tópico será explicado junto com o tópico de Encapsulamento).
@@ -33,13 +33,13 @@ O segundo item é o tipo da propriedade. Assim como numa variável, ele pode ser
 ```java
 public boolean isValid()
 {
-	if (this.valid == 1)
+	if (this.valid)
 		return true;
 	return false;
 }
 ```
 
-Abaixo temos nosso exemplo completo da nossa classe:
+<p>Abaixo temos nosso exemplo completo da nossa classe, com seus atributos e método:</p>
 ```java
 public class User
 {
@@ -57,8 +57,18 @@ public class User
 ```
 
 ##1.2 OBJETO
-
+<p>Um objeto é o resultado da instanciação de uma classe. Este objeto possui todas as características da classe da qual se originou e também realiza todas as ações estipuladas em seu escopo. Um objeto é criado da seguinte maneira:</p>
+```java
+User myuser = new User();
+```
+<p>No exemplo acima declaramos um objeto da classe 'User', que criamos anteriormente. Sabendo que este objeto conta com os recursos da classe, pordemos fazer o seguinte:</p>
+```java
+if (myuser.isValid())
+	System.out.println("Bem-Vindo");
+```
+<p>Isto foi possível pois o método <code>isValid()</code> foi declarado com o atributo <code>public</code>, permitindo que o usemos fora do ambiente de sua classe. Outro item que poderia ser acessado deste objeto é seu atributo <code>username</code>, pois também foi declarado como público. Já as propriedades <code>fullname</code> e <code>valid</code> não podem ser acessadas do objeto, apenas dentro do seu escopo de classe. A seguir veremos mais detalhes sobre visibilidade.</p>
 ##1.3 ENCAPSULAMENTO
+
 ###Níveis de encapsulamento
 ####public
 ####protected
