@@ -39,6 +39,33 @@ vet[46, 15, 91, 59, 62, 76, 10, 93]
 Desenvolver um método Java de ordenação pelo método SELEÇÂO.
 </p>
 
+```java
+public int[] selecao(int[] vetor)
+{
+    // armazenam o menor valor e o índice do menor valor
+    int menor, indiceMenor;
+
+    for (int i = 0; i < vetor.length - 1; i++) {
+        // antes de comparar, considera-se menor o valor atual do loop
+        menor = vetor[i];
+        indiceMenor = i;
+
+        // compara com os outros valores do vetor
+        for (int j = i + 1; j < vetor.length; j++){
+            if (vetor[j] < menor){
+                menor = vetor[j];
+                indiceMenor = j;
+            }
+        }
+
+        // troca os valores menor e maior
+        vetor[indiceMenor] = vetor[i];
+        vetor[i] = menor;
+    }
+
+    return vetor;
+}
+```
 ---
 ##1.2. Método da bolha
 
@@ -74,6 +101,25 @@ vet[3, 9, 7, 5, 11, 1]
 Desenvolver um método Java que implemente o método de ordenação bolha.
 </p>
 
+```java
+public int[] bubble(int[] vetor)
+{
+    int aux = 0;
+    int i = 0;
+    
+    for (i = 0; i < vetor.length; i++) {
+        for (i = 0; i < vetor.length - 1; i++) {
+            if (vetor[j] > vetor[j + 1]) {
+                aux = vetor[j];
+                vetor[j] = vetor[j + 1];
+                vetor[j + 1] = aux;
+            }
+        }
+    }
+    
+    return vetor;
+}
+```
 ---
 ##1.3. Método classificação por inserção
 ####1.3.1. Descrição
@@ -105,4 +151,28 @@ vet[10, 8, 6, 2, 16, 4, 18, 11, 14, 12]
 Desenvolver um método Java que implemente o método de ordenação por inserção.
 </p>
 
-<p><strong>OBS: Criar classe chamada classificação e criar os métodos dentro.</strong></p>
+```java
+public int[] insercao(int[] vetor) {
+    int j;
+    int key;
+    int i;
+
+    for (j = 1; j < vetor.length; j++)
+    {
+        key = vetor[j];
+        
+        for (i = j - 1; (i >= 0) && (vetor[i] > key); i--)                                                                                                        
+        {
+            vetor[i + 1] = vetor[i];
+        }
+        vetor[i + 1] = key;
+    }
+    
+    return vetor;
+}
+```
+
+<p>Referências:</p>
+<p>https://profrodrigosilva.wordpress.com/2010/08/12/algoritmo-selection-sort-ordenacao-por-selecao-java/</p>
+<p>http://www.devmedia.com.br/entendendo-o-algoritmo-bubble-sort-em-java/24812</p>
+<p>http://www.devmedia.com.br/algoritmos-de-ordenacao-em-java/32693</p>
